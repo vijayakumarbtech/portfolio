@@ -24,7 +24,7 @@ export function Experience() {
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-tint dark:bg-surface-dark-elevated border border-line dark:border-line-dark">
                     <img
-                      src="/public/rit.png"
+                      src="/rit.png"
                       alt="Ramco Institute of Technology"
                       className="h-8 w-8 object-contain"
                     />
@@ -71,7 +71,7 @@ export function Experience() {
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-tint dark:bg-surface-dark-elevated border border-line dark:border-line-dark">
                       <img
-                        src="jupiter.png"
+                        src="/jupiter.png"
                         alt="Jupiter Brothers"
                         className="h-8 w-8 object-contain"
                       />
@@ -126,7 +126,7 @@ export function Experience() {
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-tint dark:bg-surface-dark-elevated border border-line dark:border-line-dark">
                       <img
-                        src="/public/unstop.png"
+                        src="/unstop.png"
                         alt="RIT Unstop Igniters Club"
                         className="h-8 w-8 object-contain"
                       />
