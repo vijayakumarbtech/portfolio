@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line dark:border-line-dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface-base text-ink font-body antialiased;
+    @apply dark:bg-surface-dark-base dark:text-ink-inverse;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    zoom: 110%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-brand-emerald/15 text-ink dark:text-ink-inverse;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-emerald ring-offset-2 ring-offset-surface-base dark:ring-offset-surface-dark-base rounded-sm;
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-line dark:bg-line-dark-strong rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-subtle/40;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-10;
+  }
+
+  .section-pad {
+    @apply py-14 sm:py-20;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-brand-emerald dark:text-brand-emerald-dark;
+  }
+
+  .card-surface {
+    @apply bg-surface-base dark:bg-surface-dark-raised border border-line dark:border-line-dark rounded-2xl shadow-card dark:shadow-card-dark;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:border-ink/15 dark:hover:border-line-dark-strong hover:shadow-soft;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 focus-visible:outline-none disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-white hover:bg-brand-emerald dark:bg-white dark:text-ink dark:hover:bg-brand-emerald-dark dark:hover:text-ink shadow-soft;
+  }
+
+  .btn-secondary {
+    @apply btn bg-transparent border border-line dark:border-line-dark-strong text-ink dark:text-ink-inverse hover:border-ink/40 dark:hover:border-ink-inverse-muted hover:bg-surface-raised dark:hover:bg-surface-dark-elevated;
+  }
+
+  .btn-ghost {
+    @apply btn bg-surface-raised dark:bg-surface-dark-elevated text-ink dark:text-ink-inverse hover:bg-surface-tint dark:hover:bg-line-dark;
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-line dark:border-line-dark bg-surface-raised dark:bg-surface-dark-elevated px-2.5 py-1 font-mono text-[11px] text-ink-muted dark:text-ink-inverse-muted;
+  }
+
+  .icon-tile {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-surface-tint dark:bg-surface-dark-elevated text-brand-emerald dark:text-brand-emerald-dark;
+  }
+
+  /* Animated underline used by the primary nav — grows from the center on
+     hover, stays full-width when the section is active. */
+  .nav-link {
+    @apply relative px-1 py-2 text-sm font-medium text-ink-muted dark:text-ink-inverse-muted transition-colors hover:text-ink dark:hover:text-ink-inverse;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute left-1/2 -bottom-0.5 h-px w-0 -translate-x-1/2 bg-brand-emerald dark:bg-brand-emerald-dark transition-all duration-300 ease-out;
+  }
+  .nav-link:hover::after {
+    @apply w-[calc(100%-0.5rem)];
+  }
+  .nav-link[data-active='true'] {
+    @apply text-ink dark:text-ink-inverse;
+  }
+  .nav-link[data-active='true']::after {
+    @apply w-[calc(100%-0.5rem)];
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .glass {
+    @apply bg-white/85 dark:bg-surface-dark-base/85 backdrop-blur-md;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-line dark:border-line-dark bg-surface-raised dark:bg-surface-dark-elevated px-3.5 py-2.5 text-sm text-ink dark:text-ink-inverse placeholder:text-ink-subtle outline-none focus:border-brand-emerald dark:focus:border-brand-emerald-dark transition-colors;
+  }
+}

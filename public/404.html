@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vijayakumar R</title>
+  </head>
+  <body>
+    <!--
+      GitHub Pages serves this file for any unknown path (since it can't do
+      server-side rewrites like Vercel/Netlify). We stash the intended path
+      and bounce back to index.html, which restores it before React Router
+      takes over. See README.md > Deploying to GitHub Pages.
+    -->
+    <script>
+      sessionStorage.setItem('spa-redirect', location.pathname + location.search + location.hash);
+      location.replace('/');
+    </script>
+  </body>
+</html>
